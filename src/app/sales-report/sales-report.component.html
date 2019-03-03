@@ -1,0 +1,44 @@
+
+    <div class="row">
+      <div class="col-sm-7">
+        <center>
+          <h1>Sales Report </h1>
+          <br>
+        </center>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+        <center>
+          <table class="table">
+            <!--Table head-->
+            <thead class="apropiateBlack text-black lighten-4">
+              <tr>
+                <th>Inventory in stock</th>
+                <th>Inventory Sold</th>
+                <th>Total sale</th>
+              </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let row of SalesReports">
+                    <td>{{row.quantityAvailable}}</td>
+                    <td>{{row.sumQuantity}}</td>
+                    <td>{{row.sumItemSale}}</td>  
+                </tr>
+            </tbody>
+            <!--Table body-->
+
+          </table>
+          <br>
+        </center>
+      </div>
+      <div class="col-sm-4">
+        <div class="row">
+          <h5>From:</h5>
+          <input #date (change)="dayFrom(date.value)" id="date" type="date" >
+          <h5>To:</h5>
+          <input #date1 (change)="dayto(date1.value)" id="date" type="date">
+          <button type="button" (click)="btn0(date.value,date1.value)" class="btn btn-elegant">Search</button>
+        </div>
+      </div>

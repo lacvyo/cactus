@@ -1,20 +1,123 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!--Main Navigation-->
+<!--Navbar-->
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar ie-nav bg-default" [containerInside]="false">
 
+  <logo>
+    <img src="assets\logo4.png" class="img-fluid" width="75" height="75" alt="">
+  </logo>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item waves-light" mdbRippleRadius>
+        <a routerLink="/" class="nav-link" href="#">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown" dropdown>
+        <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
+          Store
+          <span class="caret"></span>
+        </a>
+        <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+          <a [routerLink]="['/products',{foo: 'Coffee Mugs'}]" class="dropdown-item waves-light" (click)="style.hide()" mdbRippleRadius >Coffee Mugs</a>
+                      <a [routerLink]="['/products',{foo: 'Travel Mugs'}]" class="dropdown-item waves-light" (click)="style.hide()" mdbRippleRadius >Travel Mugs</a>
+                      <div class="divider dropdown-divider"></div>
+                      <a [routerLink]="['/products',{foo: 'All Products'}]" class="dropdown-item waves-light" (click)="style.hide()" mdbRippleRadius >All Products</a>
+        </div>
+      </li>
+
+      <li class="nav-item waves-light" mdbRippleRadius>
+        <a routerLink="/about" class="nav-link" href="#">About</a>
+      </li>
+
+      <li class="nav-item waves-light" mdbRippleRadius>
+        <a routerLink="/contact" class="nav-link" href="#">Contact</a>
+      </li>
+
+      <li class="nav-item waves-light" mdbRippleRadius>
+        <a routerLink="/cart" class="nav-link" href="#">Cart</a>
+      </li>
+      <div class="float-right">
+        <li class="nav-item waves-light" mdbRippleRadius>
+          <a class="nav-link" (click)="form.show()" *ngIf="!logged; else isLogged" mdbRippleRadius>Login</a>
+          <ng-template #isLogged>
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle type="button" class="nav-link dropdown-toggle waves-light" (click)="style.hide()" mdbRippleRadius>
+                User settings
+                <span class="caret"></span>
+              </a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item nav-link waves-light" mdbRippleRadius routerLink="/user_settings">User settings</a>
+
+                <a class="dropdown-item nav-link waves-light" mdbRippleRadius routerLink="/profile">Orders</a>
+                <a class="dropdown-item waves-light" routerLink="" (click)="onLogOut()" mdbRippleRadius>Log Out</a>
+              </div>
+            </li>
+          </ng-template>
+        </li>
+      </div>
+    </ul>
+  </links>
+</mdb-navbar>
+
+
+<!-- Main -->
+
+<router-outlet></router-outlet>
+
+<!--Modal: Login Form-->
+<div mdbModal #form="mdb-modal" class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Header-->
+      <div class="modal-header bg-default darken-3 white-text">
+        <h4 class="title">
+          <i class="fa fa-user"></i> Log in</h4>
+        <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="form.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <p style="color: red">{{err}}</p>
+        <div class="md-form form-sm">
+          <i class="fa fa-envelope prefix"></i>
+          <input mdbActive type="text" id="form30" class="form-control" [(ngModel)]="checkEmail">
+          <label for="form30">Your email</label>
+        </div>
+
+        <div class="md-form form-sm">
+          <i class="fa fa-lock prefix"></i>
+          <input mdbActive type="password" id="form31" class="form-control" [(ngModel)]="checkPass">
+          <label for="form31">Your password</label>
+        </div>
+
+        <div class="text-center mt-2">
+          <button class="btn btn-default waves-light" mdbPopover="SELECT count(user_id) FROM user WHERE email = $email and password = $password"
+            placement="right" popoverTitle="Query" triggers="hover" (click)="onLogIn()" mdbRippleRadius>Log in
+            <i class="fa fa-sign-in ml-1"></i>
+          </button>
+        </div>
+
+      </div>
+      <!--Footer-->
+      <div class="modal-footer">
+        <div class="options text-center text-md-right mt-1">
+          <p>Not a member?
+            <a routerLink="/register">Sign Up</a>
+          </p>
+          <p>Forgot
+            <a>Password?</a>
+          </p>
+        </div>
+        <button type="button" class="btn btn-outline-info ml-auto" data-dismiss="modal" (click)="form.hide()" mdbRippleRadius>Close</button>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login Form-->
+
+<!--Modal: Login / Register Form-->

@@ -1,0 +1,60 @@
+<div class="row text-center">
+  <div class="col-sm-8">
+    <center>
+      <h1>Sales by Product</h1>
+      <br>
+    </center>
+  </div>
+</div>
+<div class="row text-center">
+
+  <div class="col-sm-8">
+    <center>
+
+      <table class="table">
+        <!--Table head-->
+        <thead class="apropiateBlack text-black lighten-4">
+          <tr>
+            <th>Product ID#</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Product Cost</th>
+            <th>Quantity Available</th>
+            <th>Quantity Sold</th>
+            <th>Sales by Product</th>
+            <th>Revenue by Product</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let sales of SalesByProduct">
+            <td>{{sales.product_id}}</td>
+            <td>{{sales.product_name}}</td>
+            <td>{{sales.product_category}}</td>
+            <td>${{sales.sale_price}}</td>
+            <td>{{sales.quantity_availabe}}</td>
+            <td>{{sales.sum_quantity}}</td>
+            <td>${{sales.income}}</td>
+            <td>${{sales.productRevenue}}</td>
+          </tr>
+      
+
+        </tbody>
+        <!--Table body-->
+
+      </table>
+
+    </center>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="row">
+      <h5>From:</h5>
+      <input #date (change)="dayFrom(date.value)" id="date" type="date" >
+      <h5>To:</h5>
+      <input #date1 (change)="dayto(date1.value)" id="date" type="date">
+      <button type="button" (click)="btn0(date.value,date1.value)" class="btn btn-elegant">Search</button>
+    </div>
+  </div>
+  
+</div>

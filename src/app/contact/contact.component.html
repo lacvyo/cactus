@@ -1,0 +1,124 @@
+<main class="container mx-auto  ">
+<!--Section: Contact v.1-->
+<section class="section pb-5">
+<br>
+<br>
+    <!--Section heading-->
+    <h2 class="section-heading h1 pt-4">Contact us</h2>
+    <!--Section description-->
+    <p class="section-description pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-lg-5 mb-4">
+
+            <!--Form with header-->
+            <div class="card">
+
+                <div class="card-body">
+                    <!--Header-->
+                    <div class="">
+                        <h3><i class="fa fa-envelope"></i> Write to us:</h3>
+                    </div>
+                    <br>
+
+                    <!--Body-->
+                    <div class="md-form">
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input mdbActive type="text" id="form3" class="form-control">
+                        <label for="form3">Your name</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <input mdbActive type="text" id="form2" class="form-control">
+                        <label for="form2">Your email</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-tag prefix grey-text"></i>
+                        <input mdbActive type="text" id="form32" class="form-control">
+                        <label for="form34">Subject</label>
+                    </div>
+
+                    <div class="md-form">
+                      <i class="fa fa-pencil prefix grey-text"></i>
+                      <textarea type="text" id="form8" class="md-textarea" style="height: 100px" mdbActive></textarea>
+                      <label for="form8">Your message</label>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="button" class="btn btn-default waves-light" (click)="style.show()" mdbRippleRadius>Send Message</button>
+
+<div mdbModal #style="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-notify modal-success" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="heading lead">Message Sent</p>
+
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+                    <p>
+                      Thank you for contacting us.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <a type="button" class="btn btn-outline-secondary-modal" data-dismiss="modal" (click)="style.hide()" mdbRippleRadius>OK</a>
+            </div>
+        </div>
+    </div>
+</div>
+                   </div>
+
+                </div>
+
+            </div>
+            <!--Form with header-->
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-7">
+
+            <!--Google map-->
+            <agm-map class="z-depth-1-half map-container" style="height: 400px;" [latitude]="map.lat" [longitude]="map.lng">
+                <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>
+            </agm-map>
+
+            <br>
+            <!--Buttons-->
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <a class="btn-floating accent-1 waves-light" mdbRippleRadius><i class="fa fa-map-marker"></i></a>
+                    <p>San Juan, PR 00693</p>
+                    <p>United States</p>
+                </div>
+
+                <div class="col-md-4">
+                    <a class="btn-floating accent-1 waves-light" mdbRippleRadius><i class="fa fa-phone"></i></a>
+                    <p>+1 787-800-0089</p>
+                    <p>Mon - Fri, 8:00 - 4:00</p>
+                </div>
+
+                <div class="col-md-4">
+                    <a class="btn-floating accent-1 waves-light" mdbRippleRadius><i class="fa fa-envelope"></i></a>
+                    <p>info@gmail.com</p>
+                    <p>cactuscoffee@gmail.com</p>
+                </div>
+            </div>
+
+        </div>
+       <!--Grid column-->
+
+    </div>
+</section>
+
+</main>
+
+
+<!--Section: Contact v.1-->

@@ -1,0 +1,194 @@
+
+
+<div class="container-fluid-sidenav" >
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Dashboards</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+              <li>
+                  <a routerLink="/add_product" class="Sidenavs-link" href="#">Add Products</a>
+              </li>
+              <li>
+                <a routerLink="/manage_products" class="Sidenavs-link" href="#">Manage Products</a>
+              </li>
+              <li>
+                <a routerLink="/manage_account" class="Sidenavs-link" href="#">Manage Accounts</a>
+              </li>
+              <li>
+                <a routerLink="/sales" class="Sidenavs-link" href="#">Sales Report</a>
+              </li>
+              <li>
+                <a routerLink="/create_account" class="Sidenavs-link" href="#">Create Account</a>
+              </li>
+              <li>
+                <a routerLink="/view_order" class="Sidenavs-link" href="#">View  Order</a>
+              </li>
+
+
+            </ul>
+        </nav>
+    </div>
+  </div>
+
+
+
+
+  <div class="jumbotron">
+
+      <main>
+          <div class="text-center">
+            <h1 class="spaceMarginTop"><strong>Add a product</strong></h1>
+          </div>
+
+          <div class="container">
+                <div class="row">
+
+                  <div class="col-md-6">
+
+
+                    <h4 class="text-left">Product name:</h4>
+                    <div class="md-form">
+                      <input type="text" class="form-control" placeholder="Please enter the name" [(ngModel)]="addProduct.productName">
+                    </div>
+
+
+                    <h4 class="text-left">Product Category:</h4>
+
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" #idCategory placeholder="idCategory" [(ngModel)]="addProduct.productCategorys">
+                      <option disabled selected>Choose Categoty</option>
+                      <option value="Travel">Travel</option>
+                      <option value="Porcelain">Porcelain</option>
+                    </select>
+
+                    <br>
+                    <br>
+                    <div *ngIf="addProduct.productCategorys === 'Travel';else porcelain">
+                                  <h4 class="text-left">Material:</h4>
+                                  <select class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id"  [(ngModel)]="addProduct.productMaterial" >
+                                  <option disabled selected>Choose Size</option>
+                                  <option value="Plastic">Plastic</option>
+                                  <option value="Metal">Metal</option>
+                                  </select>
+
+                                  <br>
+                                  <br>
+
+                                  <h4>Choose Quality:</h4>
+                                  <div class="form-check">
+                                  <input class="form-check-input filled-in" type="checkbox" value="thermo"  [(ngModel)]="addProduct.productIsTherm">
+                                  <label class="form-check-label" for="filledInCheckbox1">
+                                      Thermo
+                                  </label>
+                                  </div>
+
+                                  <br>
+                    </div>
+                    <ng-template #porcelain >
+                          <h4 class="text-left">Paint Coat:</h4>
+                          <select class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder=""[(ngModel)]="addProduct.productPaintCoat">
+                            <option disabled selected>Choose Size</option>
+                            <option value="Metalic">Metalic</option>
+                            <option value="Glossy">Glossy</option>
+                            <option value="Mate">Mate</option>
+                          </select>
+
+                          <br>
+                          <br>
+                          <div class="form-check">
+                                  <input class="form-check-input filled-in" type="checkbox" value="though" id="filledInCheckbox1" [(ngModel)]="addProduct.productTough">
+                                  <label class="form-check-label" for="filledInCheckbox1">
+                                    Tough
+                                  </label>
+                                </div>
+
+                                <br>
+                    </ng-template>
+
+
+
+                    <h4 class="text-left">Product Color:</h4>
+
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" #id placeholder="id" [(ngModel)]="addProduct.productcolors">
+                      <option disabled selected>Choose color</option>
+                      <option value="Black">Black</option>
+                      <option value="Red">Red</option>
+                      <option value="White">White</option>
+                    </select>
+                    <br>
+                    <br>
+
+                    <!-- <div class="md-form">
+                                <input type="text" class="form-control" placeholder="Please enter the category" [(ngModel)]="itemCategory">
+                            </div> -->
+
+                    <h4 class="text-left">Product Size:</h4>
+
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" #id placeholder="id" [(ngModel)]="addProduct.productSize">
+                      <option disabled selected>Choose Size</option>
+                      <option value="Small">Small</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Large">Large</option>
+                    </select>
+
+                    <br>
+                    <br>
+                    <!-- <div class="md-form">
+                                <input type="text" class="form-control" placeholder="Please enter the size" [(ngModel)]="itemSize">
+                            </div> -->
+
+
+
+
+
+                    <h4 class="text-left">Product Description:</h4>
+                    <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" [(ngModel)]="addProduct.productDescription"></textarea>
+                    </div>
+
+                    <h4 class="text-left">Message Label:</h4>
+                    <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" [(ngModel)]="addProduct.messageInCup"></textarea>
+                    </div>
+                    <!-- <div class="md-form">
+                                <input type="text" class="form-control" placeholder="Please enter the description" [(ngModel)]="itemDescription">
+                            </div> -->
+
+                   
+                    <h4 class="text-left">Product Quantity:</h4>
+                    <div class="md-form">
+                      <input type="text" class="form-control" placeholder="Please enter the quamtity" [(ngModel)]="addProduct.productQuantity">
+                    </div>
+
+                    <h4 class="text-left">Inicial Prices:</h4>
+                    <div class="md-form">
+                      <input type="text" class="form-control" placeholder="Please enter the prices" [(ngModel)]="addProduct.inicialPrice">
+                    </div>
+
+                    <h4 class="text-left">Product Prices:</h4>
+                    <div class="md-form">
+                      <input type="text" class="form-control" placeholder="Please enter the prices" [(ngModel)]="addProduct.productPrice">
+                    </div>
+
+
+                    <h4 class="text-left">Link Photo:</h4>
+                    <div class="md-form">
+                      <input type="text" class="form-control" placeholder="Please enter the link" [(ngModel)]="addProduct.productImage">
+                    </div>
+                
+                  </div>
+
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="button" (click)="onbtn()" class="btn btn-elegant" >Add to Inventory</button>
+              </div>
+
+              <!-- onAddProduct() -->
+
+          <div class="col"></div>
+        </main>
+  </div>

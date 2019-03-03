@@ -1,0 +1,46 @@
+<div class="row">
+        <div class="col">
+          <div class="container">
+            <label for="name">First Name</label>
+            <input id="name" type="text" placeholder="" [(ngModel)]="personalInfo.first_name">
+            <br>
+            <label for="lastName">Last Name</label>
+            <input id="lastName" type="text" placeholder="" [(ngModel)]="personalInfo.last_name">
+            <br>
+            <label for="phone">Phone number</label>
+            <input id="phone" type="text" placeholder="" [(ngModel)]="personalInfo.phone_number">
+            <br>
+            <label for="birth">Date of birth</label>
+            <input id="birth" type="date" [(ngModel)]="personalInfo.date_of_birth">
+            <br>
+            <label for="email">Email</label>
+            <input id="email" type="text" placeholder="" [(ngModel)]="personalInfo.email" disabled>
+            <br>
+            <label for="pass">Password</label>
+            <input id="pass" type="password" placeholder="" [(ngModel)]="personalInfo.password">
+            <br><br>
+            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" #id placeholder=""[(ngModel)]="personalInfo.rol" >
+                <option disabled selected>Choose Size</option>
+                <option value=1>Admin</option>
+                <option value=0>User</option>
+            </select>
+
+            <div class="form-check">
+                <input class="form-check-input filled-in" type="checkbox" value="though" id="filledInCheckbox1" [(ngModel)]="personalInfo.user_active">
+                <label class="form-check-label" for="filledInCheckbox1">
+                  Disable This User or Admin
+                </label>
+              </div>
+  
+            <br><br>
+    
+            <div class="float-right">
+              <button class="btn elegant-color" (click)="onUpdate()" mdbRippleRadius>Save changes</button>
+              
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      

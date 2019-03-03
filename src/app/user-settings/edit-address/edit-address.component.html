@@ -1,0 +1,43 @@
+<!--Table-->
+
+<table class="table">
+  <!--Table head-->
+  <thead class="deep-orange">
+    <tr style="color:white">
+
+      <th>Street name</th>
+      
+      <th>City</th>
+      <th>State</th>
+      <th>Zip Code</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <!--Table head-->
+
+  <!--Table body-->
+  <tbody>
+    <tr *ngFor="let ad of Address; index as i" [attr.data-index]="i">
+     
+      <td>
+        <input id="streetName" type="text" [(ngModel)]="ad.street_address">
+      </td>
+    
+      <td>
+        <input id="city" type="text" [(ngModel)]="ad.city">
+      </td>
+      <td>
+        <input id="state" type="text" [(ngModel)]="ad.state">
+      </td>
+      <td>
+        <input id="zipCode" type="text" [(ngModel)]="ad.zip_code">
+      </td>
+      <td>
+        <button class="btn deep-orange" (click)="onUpdate(ad, i)">Update</button>
+      </td>
+      <td>
+        <button class="btn danger-color-dark" (click)="onDelete(ad, i)">Remove</button>
+      </td>
+    </tr>
+  </tbody>

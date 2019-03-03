@@ -1,0 +1,47 @@
+<div class="container-fluid-sidenav">
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Admin Dashboards</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+
+        <li>
+          <a routerLink="/add_product" class="Sidenavs-link" href="#">Add Products</a>
+        </li>
+        <li>
+          <a routerLink="/manage_products" class="Sidenavs-link" href="#">Manage Products</a>
+        </li>
+        <li>
+          <a routerLink="/manage_account" class="Sidenavs-link" href="#">Manage Accounts</a>
+        </li>
+        <li>
+          <a routerLink="/sales" class="Sidenavs-link" href="#">Sales Report</a>
+        </li>
+        <li>
+          <a routerLink="/create_account" class="Sidenavs-link" href="#">Create Account</a>
+        </li>
+        <li>
+          <a routerLink="/view_order" class="Sidenavs-link" href="#">View Order</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <app-sales-by-product></app-sales-by-product>
+    </div>
+    <div class="row">
+      <app-sales-report></app-sales-report>
+    </div>
+    <div class="row">
+      <app-revenue-report></app-revenue-report>
+    </div>
+  </div>
+</div>
+

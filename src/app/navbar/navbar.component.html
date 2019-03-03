@@ -1,0 +1,46 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark elegant-color-dark scrolling-navbar" [containerInside]="false">
+    <logo>
+
+      <a class="navbar-brand" href="#">
+           <img src="assets\cactus.jpg" height="75px" width="75px" alt="">
+       </a>
+    </logo>
+    <links>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item waves-light" mdbRippleRadius>
+                <a routerLink="/home" class="nav-link">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown" dropdown>
+              <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" (click)="style.hide()" mdbRippleRadius>
+              Store<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                  <a routerLink="/products" class="dropdown-item waves-light" (click)="style.hide()" mdbRippleRadius href="#">Coffee Mugs</a>
+                  <a routerLink="/products" class="dropdown-item waves-light" (click)="style.hide()" mdbRippleRadius href="#">Glass Mugs</a>
+                  <a routerLink="/products" class="dropdown-item waves-light" (click)="style.hide()" mdbRippleRadius href="#">Travel Mugs</a>
+                  <div class="divider dropdown-divider"></div>
+                  <a routerLink="/products" class="dropdown-item waves-light" (click)="style.hide()" mdbRippleRadius href="#">All Products</a>
+              </div>
+          </li>
+
+            <li class="nav-item waves-light" mdbRippleRadius>
+                <a routerLink="/about" class="nav-link">About Us</a>
+            </li>
+
+            <li class="nav-item waves-light" mdbRippleRadius>
+                <a routerLink="/contact" class="nav-link">Contact</a>
+            </li>
+
+        </ul>
+        <div class="text-right">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item waves-light" mdbRippleRadius>
+                <a routerLink="/log_in" class="nav-link">Log In</a>
+            </li>
+            <li class="nav-item waves-light btn-brown" mdbRippleRadius>
+                <a routerLink="/cart" class="nav-link">Cart</a>
+            </li>
+        </ul>
+    </div>
+    </links>
+  </mdb-navbar>

@@ -1,0 +1,96 @@
+<br>
+<br>
+
+<div class="card">
+    <div class="card-body">
+        <!-- Shopping Cart table -->
+        <div class="table-responsive">
+            <table class="table product-table">
+                <!-- Table head -->
+                <thead class="mdb-color lighten-5" *ngIf="total > 0">
+                    <tr>
+                        <th></th>
+                        <th class="font-bold">
+                            <strong>Product</strong>
+                        </th>
+                        <th class="font-bold">
+                            <strong>Color</strong>
+                        </th>
+                        <th></th>
+                        <th class="font-bold">
+                            <strong>Price</strong>
+                        </th>
+                        <th class="font-bold">
+                            <strong>QTY</strong>
+                        </th>
+                        <th class="font-bold">
+                            <strong>Amount</strong>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!-- /.Table head -->
+                <!-- Table body -->
+                <tbody>
+                    <!-- First row -->
+                    <tr *ngFor="let post of data">
+                        <th scope="row">
+                            <img width="300" src="assets\{{post.img}}" alt="" class="img-fluid z-depth-0">
+                        </th>
+                        <td>
+                            <p class="text-muted">{{post.name}}</p>
+                        </td>
+                        <td>{{post.color}}</td>
+                        <td></td>
+                        <td>${{post.price}}</td>
+                        <td class="center-on-small-only">
+                            <div class="md-form">
+                                <input size="5" value={{post.qty}}  #id placeholder="id" type="number" value=1  (change)="valueChange(id.value, post.id)" length="10">
+                            </div>
+                        </td>
+                        <td class="font-bold">
+                            <strong>${{post.amount}}</strong>
+                        </td>
+                        <td>
+                            <button type="button" (click)="removeItem(post.id)" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Remove item">X
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- /.First row -->
+                    <!-- Fourth row -->
+                    <tr>
+                        <td colspan="3"></td>
+                        <td>
+                            <h4 class="mt-2">
+                                <strong *ngIf="total > 0; else empty">Total:</strong>
+                            </h4>
+                        </td>
+                        <td class="text-right">
+                            <h4 class="mt-2">
+                                <strong  *ngIf="total > 0" >${{ total }}</strong>
+                            </h4>
+                        </td>
+                        <td colspan="3" class="text-right">
+                            <button  *ngIf="total > 0" routerLink="/payment" type="button" class="btn btn-default btn-rounded">Check Out
+                                <i class="fa fa-angle-right right"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- Fourth row -->
+                </tbody>
+                <!-- /.Table body -->
+            </table>
+        </div>
+        <!-- /.Shopping Cart table -->
+    </div>
+</div>
+
+
+
+
+<ng-template #empty>
+      <center> <strong style="text-align: center">Theres nothing in the shopping cart</strong> </center>
+      <br>
+      <center> <button routerLink="/products" type="button" class="btn btn-default btn-rounded">Shop Products</button> </center>
+      
+ </ng-template>

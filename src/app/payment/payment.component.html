@@ -1,0 +1,266 @@
+<br>
+
+<!-- Register form -->
+<main class="container mx-auto ">
+<main class="container mx-auto  ">
+  <!--Section: Contact v.1-->
+  <section class="section pb-5">
+  <br>
+  <br>
+  <h2 align="center" class="section-heading h1 pt-4">Payment</h2>
+<br>
+         
+      <div class="row">
+  
+          <!--Grid column-->
+          <div class="col-lg-6 mb-4">
+  
+              <!--Form with header-->
+              <div class="card">
+  
+                  <div class="card-body">
+                      <!--Header-->
+                      <!--Body-->
+                      <p> Shipping Address</p>
+                      <div>
+                          <div *ngIf="ad.length > 0" style="padding-bottom: 15px;" class="btn-group" dropdown >
+                              <select #address (change)="addressData(address.value)" class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id">
+                            
+                              <option #test value="{{i}}" (click)="addressData(test.value)" *ngFor="let ad1 of ad; index as i" [attr.data-index]="i">{{ad1.street_address}}</option>
+                              
+                              </select>
+                          </div>
+                      </div>
+
+                      <div>
+                          <div style="padding-bottom: 15px;" class="btn-group" dropdown >
+                              <select #shipping1 (change)="shipping(shipping1.value)" class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id">
+                              <option disabled selected>Shipping Method</option>
+                              <option value="Priority">Priority</option>
+                              <option value="Standard">Standard</option>
+                              </select>
+                          </div>
+                      </div>
+                      
+                      <div class="md-form">
+                          <input *ngIf="ad.length > 0; else ad1" #address12 (change)="address_data(address12.value)" placeholder="Address" value={{address}} style="width: 100%;"   type=""  class="form-control" >    
+                         
+                          <ng-template #ad1>
+                              <input  #address2 placeholder="Address" (change)="address_data(address2.value)" style="width: 100%;"   type="" class="form-control" >                      
+                          </ng-template>
+                      
+                        </div>
+                      
+                        <div class="md-form">
+                        <input *ngIf="ad.length > 0; else empty" #city12 (change)="city_data(city12.value)"  placeholder="City" value={{city}} style="width: 100%;"   type=""  class="form-control" >    
+                       
+                        <ng-template #empty>
+                            <input  placeholder="City" #city12 (change)="city_data(city12.value)"  style="width: 100%;"   type="" class="form-control" >                      
+                        </ng-template>
+                      </div>
+
+
+                    <div class="row">
+                    <div  style="padding-left: 15px; padding-top: 5px;" class="btn-group" dropdown>
+                     
+                        <select *ngIf="ad.length > 0; else empty2"  #country13 (change)="country_data(country13.value)" value='{{country}}' class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id"   >
+                        <option disabled selected>Country</option>
+                        <option value="USA">USA</option>
+                        
+                        </select>
+
+
+                        <ng-template #empty2>
+                            <div   style="padding-left: 15px; padding-top: 5px;" class="btn-group" dropdown>
+                        
+                                <select   #country14 (change)="country_data(country14.value)" class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id"   >
+                                <option disabled selected>Country</option>
+                                <option value="USA">USA</option>
+
+                                </select>
+                            </div>
+                          </ng-template>
+                    </div>
+
+                    <div  style="padding-left: 15px; padding-top: 5px;" class="btn-group" dropdown>
+                     
+                        <select *ngIf="ad.length > 0; else empty3"  #state13 (change)="state_data(state13.value)" value='{{state}}' #state2 class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id"   >
+                        <option disabled selected>State</option>
+                        <option value="California">California</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="PR">PR</option>
+                        </select>
+
+                        <ng-template #empty3>
+                            <div  style="padding-left: 15px; padding-top: 5px;" class="btn-group" dropdown>
+                             
+                                <select  #state2 (change)="state_data(state2.value)" class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id"   >
+                                <option disabled selected>State</option>
+                                <option value="California">California</option>
+                                <option value="Florida">Florida</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="PR">PR</option>
+                                </select>
+                            </div>
+                          </ng-template >
+                    </div>
+
+
+                    <div  style="padding-left: 15px; " class="md-form">
+                        <input *ngIf="ad.length > 0; else empty4" #zip13 (change)="zipcode_data(zip13.value)"value='{{zipcode}}'  placeholder="Zip Code" type="" class="form-control">
+                        
+                        <ng-template #empty4>
+                            <input  #zip12 (change)="zipcode_data(zip12.value)" placeholder="Zip Code" type="" class="form-control">
+                        </ng-template>
+                    </div>
+
+                  </div> 
+
+                  <p>Payment Method</p>
+                  
+                  <div   style="padding-bottom: 15px;" class="btn-group" dropdown >
+                      <select #payment1 (change)="paymentMethod(payment1.value)"class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id">
+                      <option disabled selected>Payment Method</option>
+                      <option value="Mastercard">Mastercard</option>
+                      <option value="Paypal">Paypal</option>
+                      </select>
+                  </div>
+
+                  <div class="md-form">
+                      <input #cardNumber placeholder="Card Number"  type=""   class="form-control">
+                  </div>
+
+                  <div class="md-form">
+                      <input  #cardName placeholder="Card Nameholder"   type=""  class="form-control">
+                  </div>
+
+                  <div class="row">
+                     
+                      <div style="padding-left: 15px; " class="md-form">
+                          <input  #date placeholder="MM/YY"  type=""  class="form-control">
+                      </div>
+
+                      <div style="padding-left: 15px; " class="md-form">
+                          <input #cvv placeholder="CVV" type=""  class="form-control">
+                      </div>
+                  </div>
+
+                      <div class="text-center">
+                        <button routerLink="/profile" type="button" class="btn btn-default waves-light" (click)="payment()"  mdbRippleRadius>Complete Purchase</button>
+  
+  <div mdbModal #style="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-notify modal-success" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <p class="heading lead">Purchase Completed</p>
+  
+              </div>
+              <div class="modal-body">
+                  <div class="text-center">
+                      <i class="fa fa-check fa-4x mb-3 animated rotateIn"></i>
+                      <p>
+                       Thank You.
+                      </p>
+                      <p>Your Purchase has been completed.</p>
+                  </div>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <a type="button" class="btn btn-outline-secondary-modal" data-dismiss="modal" (click)="style.hide()" mdbRippleRadius>OK</a>
+              </div>
+          </div>
+      </div>
+  </div>
+                     </div>
+  
+                  </div>
+  
+              </div>
+              <!--Form with header-->
+  
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-6">
+  
+              <!--Google map-->
+              <div class="card">
+                <div class="card-body">
+                    <!-- Shopping Cart table -->
+                    <div class="table-responsive">
+                        <table class="table product-table">
+                            <!-- Table head -->
+                            <thead class="mdb-color lighten-5" *ngIf="total > 0">
+                                <tr>
+                                    <th></th>
+                                    <th class="font-bold">
+                                        <strong>Product</strong>
+                                    </th>
+                                    <th class="font-bold">
+                                        <strong>Color</strong>
+                                    </th>
+                                    <th></th>
+                                    <th class="font-bold">
+                                        <strong>Price</strong>
+                                    </th>
+                                    <th class="font-bold">
+                                        <strong>QTY</strong>
+                                    </th>
+                    
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <!-- /.Table head -->
+                            <!-- Table body -->
+                            <tbody>
+                                <!-- First row -->
+                                <tr *ngFor="let post of data">
+                                    <th scope="row">
+                                        <img width="55" src="assets\{{post.img}}" alt="" class="img-fluid z-depth-0">
+                                    </th>
+                                    <td>
+                                        <p class="text-muted">{{post.name}}</p>
+                                    </td>
+                                    <td>
+                                      <p class="text-muted">{{post.color}}</p>
+                                  </td>
+                                  <td></td>
+                                  <td>
+                                    <p class="text-muted">${{post.price}}</p>
+                                </td>
+                                    <td>{{post.qty}}</td>
+                                </tr>
+                            </tbody>
+                            <!-- /.Table body -->
+                          </table>                   
+
+                        <div class="">
+                          <h3 align="right"><strong> Total: ${{total}} </strong></h3>
+                      </div>
+                    </div>
+                    <!-- /.Shopping Cart table -->
+                </div>
+            </div>
+            <br>
+            <a class="logo" >
+              <img style="padding-left: 50px;" width="500" alt="Coffee &amp; Motivation Company" class="logo__image logo__image--large" src="//cdn.shopify.com/s/files/1/1206/8424/files/sitebadges-top.png?15588810269731213601">
+          </a>     
+  
+              <br>
+              <!--Buttons-->
+              <div class="row text-center">
+                 
+             <p style="padding-left: 185px;">© 2018, Web Designed by BNC</p>
+                         
+              </div>
+  
+          </div>
+         <!--Grid column-->
+  
+      </div>
+  </section>
+  
+  </main>
+<!-- Register form -->
+</main>

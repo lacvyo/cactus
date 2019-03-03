@@ -1,0 +1,99 @@
+<div class="container-fluid-sidenav">
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Admin Dashboards</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+
+        <li>
+          <a routerLink="/add_product" class="Sidenavs-link" href="#">Add Products</a>
+        </li>
+        <li>
+          <a routerLink="/manage_products" class="Sidenavs-link" href="#">Manage Products</a>
+        </li>
+        <li>
+          <a routerLink="/manage_account" class="Sidenavs-link" href="#">Manage Accounts</a>
+        </li>
+        <li>
+          <a routerLink="/sales" class="Sidenavs-link" href="#">Sales Report</a>
+        </li>
+        <li>
+          <a routerLink="/create_account" class="Sidenavs-link" href="#">Create Account</a>
+        </li>
+
+
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <main>
+
+    <div class="text-center">
+      <h1 class="spaceMarginTop">
+        <strong>Create Account</strong>
+      </h1>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+
+            <h4 class="text-left">First Name</h4>
+            <div class="md-form">
+              <input type="text" placeholder="Please enter first name" [(ngModel)]="user.first_name" class="form-control">
+            </div>
+            <h4 class="text-left">Last Name</h4>
+            <div class="md-form">
+              <input type="text" placeholder="Please enter last name" [(ngModel)]="user.last_name" class="form-control">
+            </div>
+            <h4 class="text-left">Date of birth</h4>
+            <div class="md-form">
+              <input type="date" placeholder="" [(ngModel)]="user.date_of_birth" class="form-control">
+            </div>
+            <h4 class="text-left">Phone number</h4>
+            <div class="md-form">
+              <input type="text" placeholder="Please enter Phone Number" [(ngModel)]="user.phone_number" class="form-control">
+            </div>
+            <h4 class="text-left">Email</h4>
+            <div class="md-form">
+              <input type="text" placeholder="Please enter Email" [(ngModel)]="user.email" class="form-control">
+            </div>
+
+            <h4 class="text-left">Password</h4>
+            <div class="md-form">
+              <input type="text" placeholder="Please enter Password" [(ngModel)]="user.password" class="form-control">
+            </div>
+            <br>
+          </div>
+        </div>
+        <div class="row text-left">
+          <div class="col-sm-6">
+
+            <h5>
+              <strong>Select type of account:</strong>
+            </h5>
+            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="" [(ngModel)]="user.rol">
+              <option disabled selected>Choose role</option>
+              <option value="1" >Administrator</option>
+              <option value="0">User</option>
+            </select>
+            <br>
+            <br>
+            <button type="button" class="btn btn-elegant" (click)="onCreateAccount()" mdbPopover="INSERT INTO user
+              (user_id, first_name, last_name, email, password, phone_number, user_active, date_of_birth)
+              VALUES (user_id, $first_name, $last_name, $email, $password, $phone_number, user_active, $date_of_birth)"
+               placement="right" popoverTitle="Query" triggers="hover">Create</button>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+</div>

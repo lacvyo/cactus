@@ -1,0 +1,210 @@
+<div class="container-fluid-sidenav">
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Admin Dashboards</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <li>
+          <a routerLink="/add_product" class="Sidenavs-link" href="#">Add Products</a>
+        </li>
+        <li>
+          <a routerLink="/manage_products" class="Sidenavs-link" href="#">Manage Products</a>
+        </li>
+        <li>
+          <a routerLink="/manage_account" class="Sidenavs-link" href="#">Manage Accounts</a>
+        </li>
+        <li>
+          <a routerLink="/sales" class="Sidenavs-link" href="#">Sales Report</a>
+        </li>
+        <li>
+          <a routerLink="/create_account" class="Sidenavs-link" href="#">Create Account</a>
+        </li>
+        <li>
+          <a routerLink="/view_order" class="Sidenavs-link" href="#">View  Order</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+
+
+<div class="jumbotron">
+
+
+  <main>
+    <div class="text-center">
+      <h1 class="spaceMarginTop">
+        <strong>Edit Product</strong>
+      </h1>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-6">
+            
+
+          <h4 class="text-left">Product name:</h4>
+          <div class="md-form">
+            <input type="text" class="form-control" placeholder="Please enter the name" [(ngModel)]="editP[0].product_name">
+          </div>
+
+          <div class="form-check">
+              <input class="form-check-input filled-in" type="checkbox" value="though" id="filledInCheckbox1" [(ngModel)]="editP[0].product_active">
+              <label class="form-check-label" for="filledInCheckbox1">
+                Product Active 
+              </label>
+            </div>
+
+            <br>
+
+
+          <h4 class="text-left">Product Category:</h4>
+
+          <select class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="" [(ngModel)]="editP[0].product_category">
+            <option disabled selected>Choose Categoty</option>
+            <option disabled selected>Travel</option>
+            <option disabled selected>Porcelain</option>
+          </select>
+
+          <br>
+          <br>
+          <div *ngIf="editP[0].product_category === 'Travel';else Porcelain">
+                        <h4 class="text-left">Material:</h4>
+                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder="id"  [(ngModel)]="editCat[0].material" >
+                        <option disabled selected>Choose Size</option>
+                        <option value="Plastic">Plastic</option>
+                        <option value="Metal">Metal</option>
+                        </select>
+
+                        <br>
+                        <br>
+
+                        <h4>Choose Quality:</h4>
+                        <div class="form-check">
+                        <input class="form-check-input filled-in" type="checkbox" value="thermo"  [(ngModel)]="editCat[0].therm">
+                        <label class="form-check-label" for="filledInCheckbox1">
+                            Thermo
+                        </label>
+                        </div>
+
+                        <br>
+          </div>
+          <ng-template #Porcelain >
+                <h4 class="text-left">Paint Coat:</h4>
+                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" placeholder=""[(ngModel)]="editCat[0].paint_coat">
+                  <option disabled selected>Choose Size</option>
+                  <option value="Metalic">Metalic</option>
+                  <option value="Glossy">Glossy</option>
+                  <option value="Mate">Mate</option>
+                </select>
+
+                <br>
+                <br>
+                <div class="form-check">
+                        <input class="form-check-input filled-in" type="checkbox" value="though" id="filledInCheckbox1" [(ngModel)]="editCat[0].tough">
+                        <label class="form-check-label" for="filledInCheckbox1">
+                          Tough
+                        </label>
+                      </div>
+
+                      <br>
+          </ng-template>
+
+          <h4 class="text-left">Product Color:</h4>
+          <select class="custom-select mb-2 mr-sm-2 mb-sm-0" #id placeholder="id" [(ngModel)]="editP[0].colors">
+            <option disabled selected>Choose color</option>
+            <option value="Black">Black</option>
+            <option value="Red">Red</option>
+            <option value="White">White</option>
+          </select>
+          <br>
+          <br>
+
+          <h4 class="text-left">Product Size:</h4>
+
+          <select class="custom-select mb-2 mr-sm-2 mb-sm-0" #id placeholder="id" [(ngModel)]="editP[0].size">
+            <option disabled selected>Choose Size</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+          </select>
+
+          <br>
+          <br>
+          <!-- <div class="md-form">
+                      <input type="text" class="form-control" placeholder="Please enter the size" [(ngModel)]="itemSize">
+                  </div> -->
+
+
+
+
+
+          <h4 class="text-left">Product Description:</h4>
+          <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" [(ngModel)]="editP[0].product_description"></textarea>
+          </div>
+          
+          <h4 class="text-left">Message Label:</h4>
+          <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" [(ngModel)]="editP[0].message_in_cup"></textarea>
+          </div>
+
+          <h4 class="text-left">Product Quantity:</h4>
+          <div class="md-form">
+            <input type="text" class="form-control" placeholder="Please enter the quamtity" [(ngModel)]="editP[0].quantity_availabe">
+          </div>
+
+          <h4 class="text-left">Inicial Prices:</h4>
+          <div class="md-form">
+            <input type="text" class="form-control" placeholder="Please enter the prices" [(ngModel)]="editP[0].initial_price">
+          </div>
+
+
+          <h4 class="text-left">Product Prices:</h4>
+          <div class="md-form">
+            <input type="text" class="form-control" placeholder="Please enter the prices" [(ngModel)]="editP[0].sale_price">
+          </div>
+
+
+          <h4 class="text-left">Link Photo:</h4>
+          <div class="md-form">
+            <input type="text" class="form-control" placeholder="Please enter the link" [(ngModel)]="editP[0].img">
+          </div>
+
+
+
+          <!-- <div class="md-form">
+            <div class="file-field">
+              <div class="btn btn-primary btn-sm float-left">
+                <span>Choose files</span>
+                <input type="file" multiple>
+              </div>
+            </div>
+          </div> -->
+
+
+        </div>
+        <div class="text-center">
+            <img src="assets/{{editP[0].img}}" alt="" style="height: 500px" class="img-fluid; ">
+            <div class="text-center">
+                <button type="button" (click)="onEditProduct()" class="btn btn-elegant" routerLink="/manage_products">Update in Inventory</button>
+                <!-- <button type="button" (click)="pruebas()" class="btn btn-elegant">hialas</button> -->
+              </div>
+              
+          </div>
+      </div>
+    </div>
+    
+
+
+    <div class="col">
+      
+    </div>
+  </main>
+</div>

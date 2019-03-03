@@ -1,0 +1,61 @@
+<div class="bg">
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row verticalcenter animated rollIn">
+    <!-- Material form login -->
+    <div class="col"></div>
+    <div class="col">
+      <!-- Material form register -->
+      <p class="h2 text-center mb-4 white-text">Sign up</p>
+      <br>
+      <!-- Material input text -->
+      <div class="md-form">
+        <i class="fa fa-user prefix white-text"></i>
+        <input type="text" placeholder="First Name"[(ngModel)]="user.tempFirstName" class="form-control">
+      </div>
+      <br>
+      <!-- Material input text -->
+      <!-- Material input text -->
+      <div class="md-form">
+        <i class="fa fa-user prefix white-text"></i>
+        <input type="text" placeholder="Last Name" [(ngModel)]="user.tempLastName" class="form-control">
+      </div>
+      <br>
+      <div class="md-form">
+        <i class="fa fa-calendar prefix white-text"></i>
+        <input type="date"  [(ngModel)]="user.tempDate" class="form-control">
+      </div>
+      <br>
+      <!-- Material input text -->
+      <!-- Material input text -->
+      <div class="md-form">
+        <i class="fa fa-phone prefix white-text"></i>
+        <input type="text" placeholder="Phone Number" [(ngModel)]="user.tempPhone" class="form-control">
+      </div>
+      <br>
+      <!-- Material input text -->
+
+      <!-- Material input email -->
+      <div class="md-form">
+        <i class="fa fa-envelope prefix white-text"></i>
+        <input type="email" placeholder="Email" [(ngModel)]="user.tempEmail" class="form-control">
+      </div>
+      <br>
+      <!-- Material input password -->
+      <div class="md-form">
+        <i class="fa fa-lock prefix white-text"></i>
+        <input type="password" placeholder="Password" [(ngModel)]="user.tempPassword" class="form-control">
+      </div>
+      <br>
+      <div class="text-center mt-4">
+        <button routerLink="/home" class="btn btn-primary" mdbPopover="{{query}}" placement="top" popoverTitle="Query" triggers="hover"
+        (click)="onInsertUser()">Register</button>
+      </div>
+      <!-- Material form register -->
+    </div>
+    <div class="col"></div>
+  </div>
+
+</div>
